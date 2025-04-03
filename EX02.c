@@ -49,7 +49,7 @@ int main(void)
         IO_print("\n0 - Parar");
         IO_print("\n1 - Volume com casca cilindrica e deslocamento");
 
-        opcao = IO_readint("\nDigite uma opcao: ");
+        opcao = IO_readint("\n\nDigite uma opcao: ");
         switch (opcao)
         {
         case 0:
@@ -86,58 +86,55 @@ void method_00(void)
 /*
 ---------------------------------------------------------------------------------------------------
 METODO 01                       [b]
-- Formula da casca cilindrica 2π∫ ( r(x) * h(x) )dx 
+- Formula da casca cilindrica 2π∫ ( r(x) * h(x) )dx
                               [a]
    - Onde:
     .[a] =      limite inferior
     .[b] =      limite superior
     .[h] =      altura
     .[r(x)] =   funcao que representa a distancia do eixo ate a casca cilindrica
-    .[h(x)] =   funcao que representa a altura casca cilindrica   
+    .[h(x)] =   funcao que representa a altura casca cilindrica
 ---------------------------------------------------------------------------------------------------
 */
 
 void method_01(void)
 {
     // identificacao
-    printf("%s\n", "\nMetodo 01\n"); 
+    printf("%s\n", "\nMetodo 01\n");
 
     // Declaracao de variaveis
-    int opcao=              0;
-    int a=                  0;
-    int b=                  0;
-    double altura=          0.0;
-    double comprimento=     0.0;
-    double deslocamentoX=   0.0;
-    double deslocamentoY=   0.0;
-    double posicaoX=        0.0;
-    double posicaoY=        0.0;
+    int opcao = 0;
+    int a = 0;
+    int b = 0;
+    double raio = 0.0;
+    double altura = 0.0;
+    double comprimento = 0.0;
+    double posicaoX = 0.0;
+    double posicaoY = 0.0;
 
     // Leitura dos limties
-    a=IO_readint("Digite o limite inferior da integral: ");
-    b=IO_readint("Digite o limite superior da integral: ");
+    a = IO_readint("Digite o limite inferior da integral [Numero inteiro]: ");
+    b = IO_readint("Digite o limite superior da integral [Numero inteiro]: ");
+
+    raio = IO_readdouble("\nDigite o raio da circuferencia [Numero racional]: ");
 
     // Leitura para deslocamentos
     // Leitura para deslocamento no eixo x
-    opcao=IO_readint("Ha deslocamento horizontal?\n[0]- Sim\n[1]- Nao?");
+    opcao = IO_readint("\nHa deslocamento horizontal? [Numero inteiro]\n[0]- Sim\n[1]- Nao\n");
 
-    if(opcao==0)
+    if (opcao == 0)
     {
 
-        posicaoX=IO_readdouble("Digite a posicao no eixo [X]: ");
-        deslocamentoX= posicaoX - 0.0;
-
+        posicaoX = IO_readdouble("\nDigite a posicao no eixo [X] | [Numero racional]: ");
     }
-    else
-    {
-        // Leitura para deslocamento no eixo y
-        opcao=IO_readint("Ha deslocamento vertical?\n[0]- Sim\n[1]- Nao?");
+    
 
-        if(opcao==0)
-        {
-            posicaoY=IO_readdouble("Digite a posicao no eixo [X]: ");
-            deslocamentoY= posicaoX - 0.0;            
-        }
+    // Leitura para deslocamento no eixo y
+    opcao = IO_readint("\nHa deslocamento vertical? [Numero inteiro]\n[0]- Sim\n[1]- Nao\n");
+
+    if (opcao == 0)
+    {
+        posicaoY = IO_readdouble("Digite a posicao no eixo [Y] | [Numero racional]:: ");
     }
 
     // encerramento
