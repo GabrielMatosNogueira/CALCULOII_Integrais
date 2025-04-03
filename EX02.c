@@ -47,7 +47,7 @@ int main(void)
     do
     {
         IO_print("\n0 - Parar");
-        IO_print("\n1 - Metodo 0a11");
+        IO_print("\n1 - Volume com casca cilindrica e deslocamento");
 
         opcao = IO_readint("\nDigite uma opcao: ");
         switch (opcao)
@@ -85,15 +85,60 @@ void method_00(void)
 
 /*
 ---------------------------------------------------------------------------------------------------
-METODO 01
--
+METODO 01                       [b]
+- Formula da casca cilindrica 2π∫ ( r(x) * h(x) )dx 
+                              [a]
+   - Onde:
+    .[a] =      limite inferior
+    .[b] =      limite superior
+    .[h] =      altura
+    .[r(x)] =   funcao que representa a distancia do eixo ate a casca cilindrica
+    .[h(x)] =   funcao que representa a altura casca cilindrica   
 ---------------------------------------------------------------------------------------------------
 */
 
 void method_01(void)
 {
     // identificacao
-    printf("%s\n", "\nMetodo 01\n");
+    printf("%s\n", "\nMetodo 01\n"); 
+
+    // Declaracao de variaveis
+    int opcao=              0;
+    int a=                  0;
+    int b=                  0;
+    double altura=          0.0;
+    double comprimento=     0.0;
+    double deslocamentoX=   0.0;
+    double deslocamentoY=   0.0;
+    double posicaoX=        0.0;
+    double posicaoY=        0.0;
+
+    // Leitura dos limties
+    a=IO_readint("Digite o limite inferior da integral: ");
+    b=IO_readint("Digite o limite superior da integral: ");
+
+    // Leitura para deslocamentos
+    // Leitura para deslocamento no eixo x
+    opcao=IO_readint("Ha deslocamento horizontal?\n[0]- Sim\n[1]- Nao?");
+
+    if(opcao==0)
+    {
+
+        posicaoX=IO_readdouble("Digite a posicao no eixo [X]: ");
+        deslocamentoX= posicaoX - 0.0;
+
+    }
+    else
+    {
+        // Leitura para deslocamento no eixo y
+        opcao=IO_readint("Ha deslocamento vertical?\n[0]- Sim\n[1]- Nao?");
+
+        if(opcao==0)
+        {
+            posicaoY=IO_readdouble("Digite a posicao no eixo [X]: ");
+            deslocamentoY= posicaoX - 0.0;            
+        }
+    }
 
     // encerramento
     printf("%s\n", "\nApertar ENTER para continuar\n");
