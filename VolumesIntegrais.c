@@ -133,13 +133,15 @@ void method_00(void)
 /*
 ---------------------------------------------------------------------------------------------------
 METODO 01                       [b]
-- Formula da casca cilindrica 2π∫h
+- Formula da casca cilindrica 2π∫ ( r(x) * h(x) )dx 
                               [a]
    - Onde:
-    .[a] = limite inferior
-    .[b] = limite superior
-    .[h] = altura
-    .[a] = limite inferior
+    .[a] =      limite inferior
+    .[b] =      limite superior
+    .[h] =      altura
+    .[r(x)] =   funcao que representa a distancia do eixo ate a casca cilindrica
+    .[h(x)] =   funcao que representa a altura casca cilindrica   
+
 ---------------------------------------------------------------------------------------------------
 */
 
@@ -148,7 +150,13 @@ void method_01(void)
     // identificacao
     printf("%s\n", "\nVolume por casca cilindrica\n");
 
+    // Declaracao de variaveis
+    int a=0;
+    int b=0;
 
+    // Leitura das variaveis
+    a=IO_readint("Digite o valor do limite inferior: ");
+    b=IO_readint("Digite o valor do limite superior: ");    
 
     // encerramento
     printf("%s\n", "\nApertar ENTER para continuar\n");
@@ -157,8 +165,15 @@ void method_01(void)
 
 /*
 ---------------------------------------------------------------------------------------------------
-METODO 02
-- 
+METODO 02                       [b]
+- Formula da casca cilindrica 2π∫ ( r(x) * h(x) )dx 
+                              [a]
+   - Onde:
+    .[a] =      limite inferior
+    .[b] =      limite superior
+    .[h] =      altura
+    .[r(x)] =   funcao que representa a distancia do eixo ate a casca cilindrica
+    .[h(x)] =   funcao que representa a altura casca cilindrica   
 ---------------------------------------------------------------------------------------------------
 */
 
