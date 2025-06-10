@@ -26,7 +26,7 @@
     double derivada_x(double funcao_dx, int x, int y)
     {
         double resultado=0.0;
-        double exist=false;
+        bool exist=false;
 
         resultado = (12*pow(x,5)-156*pow(x,3)+432);
 
@@ -46,7 +46,7 @@
     double derivada_y(double funcao_dy, int x, int y)
     {
         double resultado=0.0;
-        double exist=false;
+        bool exist=false;
 
         resultado = (pow(y,6)+pow(y,5)-101*pow(y,2)+200*y-202*pow(y,3));
 
@@ -75,9 +75,9 @@
         double b=0.0;
         double c=0.0;
 
-        double funcao_dxx=0.0;
+        double funcao_dxx=(60*pow(x,4)-460*pow(x,2)+432);;
         double funcao_dxy=0.0;
-        double funcao_dyy=0.0;
+        double funcao_dyy=(6*pow(y,5)+5*pow(y,4)-202*y+200-202*pow(y,3));
 
         double D=0.0;
         double funcao_dx=0.0;
@@ -88,11 +88,11 @@
 
         if ( verification == derivada_x(funcao_dx, x, y) && verification == derivada_y (funcao_dy, x, y))
         {
-            a=funcao_dxx(60*pow(x,4)-460*pow(x,2)+432)
-            b=funcao_dyy(6*pow(y,5)+5*pow(y,4)-202*y+200-202*pow(y,3));
+            a=funcao_dxx;
+            b=funcao_dyy;
             c= 0;
             D= a * b - pow(c,2);
-
+            printf("\n%.2lf", D);
         }
         
         else
